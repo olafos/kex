@@ -1,5 +1,7 @@
 # kex
 
+[![Latest Release](https://img.shields.io/github/v/release/olafos/kex)](https://github.com/olafos/kex/releases/latest)
+
 Kotlin exception utilities - a lightweight library providing extension functions for better exception handling in Kotlin.
 
 ## Installation
@@ -10,7 +12,7 @@ Add the following to your `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("pl.codeplay.kex:kex:1.0-SNAPSHOT")
+    implementation("pl.codeplay.kex:kex:<version>")
 }
 ```
 
