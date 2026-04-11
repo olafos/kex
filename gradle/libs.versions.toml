@@ -1,0 +1,21 @@
+[versions]
+
+assertk = "0.28.1"
+junit = "6.0.3"
+kotlin = "2.3.20"
+ktlint = "14.2.0"
+ktlint-ruleset = "1.8.0"
+mockk = "1.14.9"
+test-logger = "4.0.0"
+versions = "0.53.0"
+
+[libraries]
+assertk = { module = "com.willowtreeapps.assertk:assertk-jvm", version.ref = "assertk" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
+test-logger = { id = "com.adarshr.test-logger", version.ref = "test-logger" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
