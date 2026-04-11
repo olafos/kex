@@ -1,11 +1,6 @@
 plugins {
-    alias(libs.plugins.kotlin.jvm) apply(false)
+    id("kotlin-convention")
 }
 
-repositories {
-    mavenCentral()
-}
-
-tasks.wrapper {
-    gradleVersion = "8.8"
-}
+group = "pl.codeplay.kex"
+version = "1.0-SNAPSHOT"

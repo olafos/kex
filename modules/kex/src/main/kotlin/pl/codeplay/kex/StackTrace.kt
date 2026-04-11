@@ -26,12 +26,10 @@ fun Throwable.isCausedBy(
     }.any(predicate)
 
 @JvmName("isCausedByType")
-inline fun <reified EX: Throwable> Throwable.isCausedBy(
-    includeThis: Boolean = true
-) = isCausedBy(includeThis) { ex -> ex is EX }
+inline fun <reified EX : Throwable> Throwable.isCausedBy(includeThis: Boolean = true) = isCausedBy(includeThis) { ex -> ex is EX }
 
 @JvmName("isCausedByTypeAndPredicate")
-inline fun <reified EX: Throwable> Throwable.isCausedBy(
+inline fun <reified EX : Throwable> Throwable.isCausedBy(
     includeThis: Boolean = true,
     crossinline predicate: (Throwable) -> Boolean,
 ) = isCausedBy(includeThis) { ex -> ex is EX && predicate(ex) }

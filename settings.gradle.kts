@@ -1,22 +1,27 @@
+@file:Suppress("UnstableApiUsage")
+
+rootProject.name = "root"
+
+includeBuild("build-logic")
+
 pluginManagement {
     repositories {
-        mavenLocal()
-        mavenCentral()
         gradlePluginPortal()
     }
 }
 
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        mavenLocal()
         mavenCentral()
-        gradlePluginPortal()
+        mavenLocal()
     }
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
-rootProject.name = "kex"
-include("kex-core")
+include(":modules:kex")
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

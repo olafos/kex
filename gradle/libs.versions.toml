@@ -1,15 +1,38 @@
 [versions]
-kotlin = "2.0.0"
-versions-plugin = "0.51"
-spotless = "6.25.0"
-sonatype-publisher = "1.0.6"
+
+assertk = "0.28.1"
+integration-test = "2.2.5"
+junit = "6.0.3"
+kotlin = "2.3.20"
+kotlin-coroutines = "1.10.2"
+kotlin-logging = "8.0.01"
+ktlint = "14.2.0"
+ktlint-ruleset = "1.8.0"
+mockk = "1.14.9"
+spring-boot = "4.0.5"
+test-logger = "4.0.0"
+versions = "0.53.0"
 
 [libraries]
+assertk = { module = "com.willowtreeapps.assertk:assertk-jvm", version.ref = "assertk" }
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlin-logging" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-starter-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+
+[bundles]
+kotlin-coroutines = ["kotlin-coroutines", "kotlin-coroutines-reactor"]
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-versions = { id = "com.github.ben-manes.versions", version.ref = "versions-plugin" }
-spotless = { id = "com.diffplug.spotless", version.ref = "spotless"}
-sonatype-publisher = { id = "eu.kakde.gradle.sonatype-maven-central-publisher", version.ref = "sonatype-publisher"}
-
-[bundles]
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
+integration-test = { id = "com.coditory.integration-test", version.ref = "integration-test" }
+test-logger = { id = "com.adarshr.test-logger", version.ref = "test-logger" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
