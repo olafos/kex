@@ -2,14 +2,14 @@ package pl.codeplay.kex
 
 val Throwable.causalChain: Sequence<Throwable>
     get() =
-        sequence {
-            val emitted = mutableSetOf<Throwable>()
-            var root: Throwable? = this@causalChain
-            while (root != null) {
-                if (emitted.add(root)) {
+        let { ex ->
+            sequence {
+                val emitted = mutableSetOf<Throwable>()
+                var root: Throwable? = ex
+                while (root != null && emitted.add(root)) {
                     yield(root)
+                    root = root.cause
                 }
-                root = root.cause
             }
         }
 

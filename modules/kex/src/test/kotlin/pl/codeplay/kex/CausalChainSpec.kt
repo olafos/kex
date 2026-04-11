@@ -38,13 +38,14 @@ class CausalChainSpec {
     fun `should avoid cycles in causal chain`() {
         // given
         val error = RuntimeException("root")
-        error.initCause(error) // Create a cycle
+        val cause = RuntimeException("cause", error)
+        error.initCause(cause) // Create a cycle
         // when
         val chain = error.causalChain.toList()
         // then
         assertThat(chain).all {
-            hasSize(1)
-            containsExactly(error)
+            hasSize(2)
+            containsExactly(error, cause)
         }
     }
 }

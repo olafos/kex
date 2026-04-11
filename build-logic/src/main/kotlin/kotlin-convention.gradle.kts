@@ -8,7 +8,6 @@ plugins {
     java
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.ktlint)
-    alias(libs.plugins.integration.test)
     alias(libs.plugins.test.logger)
     alias(libs.plugins.versions)
 }
@@ -26,6 +25,7 @@ ktlint {
 }
 
 dependencies {
+    compileOnly(libs.kotlin.stdlib)
     testImplementation(libs.assertk)
     testImplementation(libs.mockk)
 }
