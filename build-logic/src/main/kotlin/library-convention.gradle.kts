@@ -1,7 +1,6 @@
 plugins {
     id("kotlin-convention")
     `maven-publish`
-    signing
 }
 
 publishing {
@@ -9,8 +8,8 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                name.set("JVM Gradle Multi-Module Template Library")
-                description.set("A sample library from the JVM Gradle multi-module template")
+                name.set("kex")
+                description.set("Kotlin exception utilities - a lightweight library providing extension functions for better exception handling in Kotlin")
                 url.set("https://github.com/olafos/kex")
                 licenses {
                     license {
@@ -41,8 +40,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign(publishing.publications["maven"])
 }
