@@ -1,11 +1,9 @@
 @file:Suppress("UnstableApiUsage")
 
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.gradle.api.JavaVersion
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
+    id("project-metadata-convention")
     java
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.ktlint)
@@ -31,22 +29,9 @@ dependencies {
     testImplementation(libs.mockk)
 }
 
-tasks {
-    withType<KotlinCompile>().configureEach {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
-            apiVersion = KotlinVersion.KOTLIN_1_9
-            languageVersion = KotlinVersion.KOTLIN_1_9
-            freeCompilerArgs.add("-Xcontext-parameters")
-            freeCompilerArgs.add("-Xcontext-sensitive-resolution")
-            freeCompilerArgs.add("-Xnested-type-aliases")
-        }
-    }
-}
-
 testing {
     suites {
-        val test by getting(JvmTestSuite::class) {
+        withType<JvmTestSuite>().configureEach {
             useJUnitJupiter(libs.versions.junit)
         }
     }
