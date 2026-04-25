@@ -2,7 +2,7 @@
 
 assertk = "0.28.1"
 junit = "6.0.3"
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 ktlint = "14.2.0"
 ktlint-ruleset = "1.8.0"
 mockk = "1.14.9"
