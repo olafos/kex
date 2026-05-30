@@ -5,7 +5,7 @@ junit = "6.0.3"
 kotlin = "2.3.21"
 ktlint = "14.2.0"
 ktlint-ruleset = "1.8.0"
-mockk = "1.14.9"
+mockk = "1.14.11"
 test-logger = "4.0.0"
 versions = "0.54.0"
 
